@@ -9,5 +9,7 @@ namespace Projeto_BancoDados.Repository.Contract
         void CadastrarUsuario(Usuario usuario);
         void AtualizarUsuario(Usuario usuario);
         Usuario ObterUsuario(int  id);
+
+        void Excluir(int id);
     }
 }

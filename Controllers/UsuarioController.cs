@@ -37,13 +37,20 @@ namespace Projeto_BancoDados.Controllers
 
         public IActionResult AtualizarUsuario(int id)
         {
-           return View(_usuarioRepository.ObterUsuario(id));
+            return View(_usuarioRepository.ObterUsuario(id));
         }
         [HttpPost]
 
         public IActionResult AtualizarUsuario(Usuario usuario)
         {
             _usuarioRepository.AtualizarUsuario(usuario);
-            return RedirectToAction(nameof(Index)); 
+            return RedirectToAction(nameof(Index));
         }
-}
+    
+        public IActionResult ExcluirUsuario(int id)
+        {
+            _usuarioRepository.Excluir(id);
+            return RedirectToAction(nameof(Index));  
+        }
+    }
+}     

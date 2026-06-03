@@ -733,3 +733,4 @@ C:\Users\ISABELLIDASILVADAMAS.AzureAD\Downloads\Projeto_ASP_NET_BANCO_V2\Projeto
 C:\Users\ISABELLIDASILVADAMAS.AzureAD\Downloads\Projeto_ASP_NET_BANCO_V2\Projeto_BancoDados\obj\Debug\net10.0\Projeto_BancoDados.pdb
 C:\Users\ISABELLIDASILVADAMAS.AzureAD\Downloads\Projeto_ASP_NET_BANCO_V2\Projeto_BancoDados\obj\Debug\net10.0\Projeto_BancoDados.genruntimeconfig.cache
 C:\Users\ISABELLIDASILVADAMAS.AzureAD\Downloads\Projeto_ASP_NET_BANCO_V2\Projeto_BancoDados\obj\Debug\net10.0\ref\Projeto_BancoDados.dll
+C:\Users\ISABELLIDASILVADAMAS.AzureAD\Downloads\Projeto_ASP_NET_BANCO_V2\Projeto_BancoDados\obj\Debug\net10.0\Projeto_BancoDados.sourcelink.json

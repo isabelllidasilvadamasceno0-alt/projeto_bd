@@ -11,7 +11,7 @@ namespace Projeto_BancoDados.Repository
 
         public UsuarioRepository(IConfiguration conf)
         {
-            _conexaoMySQL = conf.GetConnectionString("ConexaoMySQL");  
+            _conexaoMySQL = conf.GetConnectionString("ConexaoMySQL");
         }
         public void AtualizarUsuario(Usuario usuario)
         {
@@ -19,10 +19,10 @@ namespace Projeto_BancoDados.Repository
             {
                 conexao.Open();
                 MySqlCommand cmd = new MySqlCommand("Update usuario set nomeUsu = @nomeUsu, Cargo = @Cargo, DataNasc = @DataNasc WHERE idUsu = @idUsu;", conexao);
-                cmd.Parameters.Add("@nomeUsu"MySqlDbType.VarChar).Value = usuario.nomeUsu;
-                cmd.Parameters.Add("@Cargo"MySqlDbType.VarChar ).Value = usuario.Cargo;
-                cmd.Parameters.Add("@DataNasc"MySqlDbType.VarChar).Value = usuario.DataNasc.ToString("yyy/MM/dd");
-                cmd.Parameters.Add("@IdUsu"MySqlDbType.VarChar).Value = usuario.idUsu;
+                cmd.Parameters.Add("@nomeUsu", MySqlDbType.VarChar).Value = usuario.nomeUsu;
+                cmd.Parameters.Add("@Cargo", MySqlDbType.VarChar).Value = usuario.cargo;
+                cmd.Parameters.Add("@DataNasc", MySqlDbType.VarChar).Value = usuario.dataNasc.ToString("yyy/MM/dd");
+                cmd.Parameters.Add("@IdUsu", MySqlDbType.VarChar).Value = usuario.idUsu;
 
                 cmd.ExecuteNonQuery();
                 conexao.Close();
@@ -95,9 +95,24 @@ namespace Projeto_BancoDados.Repository
                 while (dr.Read())
                 {
                     usuario.idUsu = Convert.ToInt32(dr["IdUsu"]);
-                    usuario.nomeUsu = (string)(dr["nomeUsu"])
+                    usuario.nomeUsu = (string)(dr["nomeUsu"]);
                     usuario.cargo = (string)(dr["Cargo"]);
                     usuario.dataNasc = Convert.ToDateTime(dr["DataNasc"]);
                 }
-    }
-}
+                return usuario;
+            }
+        }
+
+        public void Excluir(int id)
+        {
+            using (var conexao = new MySqlConnection(_conexaoMySQL))
+            {
+                conexao.Open();
+                MySqlCommand cmd = new MySqlCommand("delete from usuario where idUsu = @idUsu", conexao);
+                cmd.Parameters.AddWithValue("@idUsu", id);
+                int i = cmd.ExecuteNonQuery();
+                conexao.Close();
+            }
+        }
+    } }
+
